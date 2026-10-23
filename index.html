@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark"><head><meta charset="utf-8"><title>focalflau</title>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><title>FocalFlau</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
 :root{--bg:#1b1c1f;--pn:#232427;--rs:#2e2f34;--ink:#ecebe6;--mut:#9b9da5;--g:#f2c94c;--y:#f2c94c;--ln:#37383e;--st:#2c2d30;--tr:#464750;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -61,7 +61,7 @@ textarea{font:12px/1.35 ui-monospace,Consolas,monospace;color:var(--ink);backgro
 .pi{padding:.4rem .5rem;border:1px solid var(--ln);border-radius:8px;margin:.25rem 0;background:var(--rs)}.pi b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pb{display:flex;gap:.25rem;margin-top:.3rem}.pb button{padding:.2rem .5rem;font-size:12px}
 @media(max-width:820px){main{grid-template-columns:1fr;grid-template-rows:minmax(0,50%) minmax(0,1fr)}aside{border-left:0;border-top:1px solid var(--ln)}.vf{padding:1.6rem 1.4rem}}
 </style></head><body>
-<header><span class="logo">focalflau</span><span class="tag">Free. No login. No ads. Your photos never leave this device.</span>
+<header><span class="logo">FocalFlau</span><span class="tag">Free. No login. No ads. Your photos never leave this device.</span>
 <button id="open">Open photo</button><button id="cmp">Hold to compare</button><button id="rst">Reset</button><button id="prb">Profiles</button><button id="th">Light mode</button><button id="exb" class="y">Export</button></header>
 <main><section id="st"><canvas id="cv"></canvas><canvas id="mo"></canvas>
 <div id="em"><div class="vf"><h1>Edit photos, in flow.</h1><p>Drop a photo here to start. Light, curves, color, effects, detail and masks, all in your browser.</p><div class="row"><button class="y" id="open2">Open photo</button><button id="smp">Try a sample</button></div></div></div></section>
@@ -228,7 +228,7 @@ function initW(){try{const u=URL.createObjectURL(new Blob([WSRC],{type:'text/jav
 ['i','f'].forEach(k=>{const r=RJ[k],w=new Worker(u);Object.assign(r,{w,ok:0,have:'',busy:0,want:0});w.onmessage=e=>wmsg(k,e.data);w.onerror=e=>{e.preventDefault&&e.preventDefault();noW()};w.postMessage({t:'ping'})});
 setTimeout(()=>{if(!(RJ.i.ok&&RJ.f.ok))noW()},4000)}catch(_){noW()}}
 function noW(){['i','f'].forEach(k=>{const r=RJ[k];if(r.w)try{r.w.terminate()}catch(_){}Object.assign(r,{w:null,ok:0,busy:0,have:''})});if(img)go()}
-function wmsg(k,m){const r=RJ[k];if(m.t=='ready'){r.ok=1;return}if(m.t=='err'){console.warn('focalflau worker:',m.msg);noW();return}
+function wmsg(k,m){const r=RJ[k];if(m.t=='ready'){r.ok=1;return}if(m.t=='err'){console.warn('FocalFlau worker:',m.msg);noW();return}
 r.busy=0;if(!bf&&r.v==ver&&!(pv==ver&&pw>m.w)){paint(m.buf,m.w,m.h);pv=ver;pw=m.w}if(k=='i')adapt(performance.now()-r.t0);if(r.want)kick(k)}
 function paint(buf,w,h){if(cv.width!=w||cv.height!=h){cv.width=w;cv.height=h}cv.getContext('2d',{willReadFrequently:true}).putImageData(new ImageData(new Uint8ClampedArray(buf),w,h),0,0);dov()}
 const adapt=dt=>{if(dt>85&&Li>0)Li--;else if(dt<28&&Li<LV.length-1)Li++};
@@ -288,7 +288,7 @@ const tw=t?x.measureText(t).width:0,lw=logo?s*logo.width/logo.height:0,mw=tw+lw+
 if(logo)x.drawImage(logo,px,py,lw,s);if(t){x.fillStyle='#fff';x.shadowColor='rgba(0,0,0,.5)';x.shadowBlur=s*.12;x.fillText(t,px+lw+(lw?s*.3:0),py)}x.globalAlpha=1;x.shadowBlur=0}
 function csp(c){const m=$('#cs').value;if(m=='s')return;const x=c.getContext('2d'),I=x.getImageData(0,0,c.width,c.height),d=I.data,Mx=m=='a'?[.7152,.2848,0,0,1,0,0,.0412,.9588]:[.5293,.33,.1406,.0983,.8734,.0283,.0168,.1176,.8656],ig=m=='a'?1/2.2:1/1.8,Tb=Float32Array.from({length:256},(_,i)=>{const v=i/255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4});
 for(let i=0;i<d.length;i+=4){const r=Tb[d[i]],g=Tb[d[i+1]],b=Tb[d[i+2]];for(let j=0;j<3;j++)d[i+j]=255*cl(Mx[j*3]*r+Mx[j*3+1]*g+Mx[j*3+2]*b)**ig}x.putImageData(I,0,0)}
-async function save(){if(!img)return toast('Open a photo first');const f=$('#ff').value,Q=$('#q').value/100;let blob,name=(file&&file.name?file.name.replace(/\.[^.]+$/,''):'focalflau')+'-edit';toast('Rendering…');await new Promise(r=>requestAnimationFrame(()=>setTimeout(r,30)));
+async function save(){if(!img)return toast('Open a photo first');const f=$('#ff').value,Q=$('#q').value/100;let blob,name=(file&&file.name?file.name.replace(/\.[^.]+$/,''):'FocalFlau')+'-edit';toast('Rendering…');await new Promise(r=>requestAnimationFrame(()=>setTimeout(r,30)));
 try{if(f=='orig'&&file&&!$('#sp').checked){blob=file;name=file.name}else{const c=document.createElement('canvas');
 if(f=='orig'){const b=P;pipe(c,0,1)}else{pipe(c,+$('#le').value||0);wm(c);csp(c)}
 const mt=f=='orig'?'jpeg':f;blob=await new Promise(r=>c.toBlob(r,'image/'+mt,Q));name+=mt=='jpeg'?'.jpg':'.'+mt;
@@ -326,23 +326,23 @@ const esc=x=>String(x).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),fin=v=>ty
 Object.values(SL).flat().concat(HS).forEach(x=>RG[x.k]=[x.a,x.b]);
 const js=o=>JSON.stringify(o,(k,v)=>typeof v=='number'?Math.round(v*1e4)/1e4:v),
 b64=t=>{const u=new TextEncoder().encode(t);let r='';for(let i=0;i<u.length;i+=8192)r+=String.fromCharCode.apply(null,u.subarray(i,i+8192));return btoa(r)},unb=t=>new TextDecoder().decode(Uint8Array.from(atob(t),c=>c.charCodeAt(0)));
-function cfix(o){if(!o||o.app!='focalflau'||!o.P||typeof o.P!='object')return null;const i=o.P,p={};
+function cfix(o){if(!o||o.app!='FocalFlau'||!o.P||typeof o.P!='object')return null;const i=o.P,p={};
 for(const k in RG)if(fin(i[k]))p[k]=cl(i[k],RG[k][0],RG[k][1]);
 if([...Object.keys(WBS),'Auto','Custom'].includes(i.wb))p.wb=i.wb;
 if(Number.isInteger(i.rot))p.rot=(i.rot%4+4)%4;if('fh' in i)p.fh=i.fh?1:0;if('fv' in i)p.fv=i.fv?1:0;if(ASP.includes(String(i.asp)))p.asp=String(i.asp);
 if(i.cv&&typeof i.cv=='object'){const c={};if(['m','r','g','b'].every(q=>{const a=i.cv[q];if(!Array.isArray(a)||a.length<2||a.length>40)return 0;const t=a.map(u=>Array.isArray(u)&&fin(u[0])&&fin(u[1])?[cl(u[0]),cl(u[1])]:null);if(t.includes(null))return 0;t[0][0]=0;t[1][0]=1;c[q]=t;return 1}))p.cv=c}
-const r={app:'focalflau',v:1,name:String(o.name||'Imported profile').replace(/[\u0000-\u001f]/g,'').slice(0,40)||'Imported profile',P:p};
+const r={app:'FocalFlau',v:1,name:String(o.name||'Imported profile').replace(/[\u0000-\u001f]/g,'').slice(0,40)||'Imported profile',P:p};
 if(Array.isArray(o.M))r.M=o.M.slice(0,12).map(m=>{if(!m||!TT.includes(m.t))return null;const q={t:m.t,a:pa(m.a)||[.5,.25],b:pa(m.b)||[.5,.75],inv:m.inv?1:0,pts:Array.isArray(m.pts)?m.pts.slice(0,30000).map(u=>Array.isArray(u)&&fin(u[0])&&fin(u[1])?[cl(u[0],-.5,1.5),cl(u[1],-.5,1.5)]:null).filter(Boolean):[]};
 [['hue',0,360,0],['tol',5,90,30],['lo',0,100,0],['hi',0,100,40],['size',2,30,8],['f',0,100,FD[m.t]],['amt',0,100,100],['e',-5,5,0],['c',-100,100,0],['s',-100,100,0],['tm',-100,100,0]].forEach(([k,a,b,d])=>q[k]=fin(m[k])?cl(m[k],a,b):d);return q}).filter(Boolean);return r}
 let PF=[];try{PF=(JSON.parse(localStorage.getItem('ff-profiles')||'[]')||[]).map(o=>cfix(o)).filter(Boolean)}catch(_){PF=[]}
 const svp=()=>{try{localStorage.setItem('ff-profiles',js(PF))}catch(_){toast('Profiles will last until you close this page')}};
 function dpl(){const e=$('#pl');if(e)e.innerHTML=PF.length?PF.map((p,i)=>`<div class="pi"><b>${esc(p.name)}</b><span class="pb"><button data-pf="ap" data-i="${i}">Apply</button><button data-pf="sh" data-i="${i}">Share</button><button data-pf="ex" data-i="${i}">Export</button><button data-pf="dl" data-i="${i}" aria-label="Delete ${esc(p.name)}">Delete</button></span></div>`).join(''):'<p class="hint">No saved profiles yet.</p>'}
-function snap(name){const p=JSON.parse(JSON.stringify(P));delete p.sm;const c=$('#pcr'),k=$('#pk');if(c&&!c.checked)['rot','fh','fv','asp','str'].forEach(x=>delete p[x]);const o={app:'focalflau',v:1,name,P:p};if(!k||k.checked)o.M=JSON.parse(JSON.stringify(M));return o}
+function snap(name){const p=JSON.parse(JSON.stringify(P));delete p.sm;const c=$('#pcr'),k=$('#pk');if(c&&!c.checked)['rot','fh','fv','asp','str'].forEach(x=>delete p[x]);const o={app:'FocalFlau',v:1,name,P:p};if(!k||k.checked)o.M=JSON.parse(JSON.stringify(M));return o}
 function applyP(o){const s=JSON.parse(JSON.stringify(o)),oP=P,oM=M,oa=am;reset();['rot','fh','fv','asp','str'].forEach(k=>{if(!(k in s.P)&&oP[k]!==undefined)P[k]=oP[k]});Object.assign(P,s.P);if(s.M){M=s.M;am=-1}else{M=oM;am=oa}build();go()}
 async function dlFile(b,n){let dl=null;try{dl=window.claude&&claude.use?await claude.use('downloads'):null}catch(_){}if(dl)await dl.save({filename:n,data:b});else{const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000)}}
 async function share(o){const c='FF1:'+b64(js(o)),t=$('#pc');if(t)t.value=c;let ok=0;try{await navigator.clipboard.writeText(c);ok=1}catch(_){try{t.select();ok=document.execCommand('copy')}catch(_){}}toast(ok?'Profile code copied':'Copy the code from the box')}
-async function exportP(o){try{await dlFile(new Blob([js(o)],{type:'application/json'}),(o.name.replace(/[^\w\- ]+/g,'').trim().replace(/\s+/g,'-')||'profile')+'.focalflau.json');toast('Profile exported')}catch(e){toast(e&&e.code=='declined'?'Export cancelled':'Could not export')}}
-function imp(t){let s=null;try{t=String(t).trim();if(t.length>6e6)throw 0;s=cfix(JSON.parse(t.startsWith('FF1:')?unb(t.slice(4).replace(/\s+/g,'')):t))}catch(_){}if(!s)return toast('That is not a readable focalflau profile');const k=PF.findIndex(p=>p.name==s.name);k<0?PF.push(s):PF[k]=s;svp();applyP(s);toast('Imported "'+s.name+'"')}
+async function exportP(o){try{await dlFile(new Blob([js(o)],{type:'application/json'}),(o.name.replace(/[^\w\- ]+/g,'').trim().replace(/\s+/g,'-')||'profile')+'.FocalFlau.json');toast('Profile exported')}catch(e){toast(e&&e.code=='declined'?'Export cancelled':'Could not export')}}
+function imp(t){let s=null;try{t=String(t).trim();if(t.length>6e6)throw 0;s=cfix(JSON.parse(t.startsWith('FF1:')?unb(t.slice(4).replace(/\s+/g,'')):t))}catch(_){}if(!s)return toast('That is not a readable FocalFlau profile');const k=PF.findIndex(p=>p.name==s.name);k<0?PF.push(s):PF[k]=s;svp();applyP(s);toast('Imported "'+s.name+'"')}
 async function pfAct(a,i){const n=(($('#pn')||{}).value||'').trim().slice(0,40);
 if(a=='sv'){const o=snap(n||'Profile '+(PF.length+1)),k=PF.findIndex(p=>p.name==o.name);k<0?PF.push(o):PF[k]=o;svp();dpl();$('#pn').value='';toast('Saved "'+o.name+'"')}
 else if(a=='cs')await share(snap(n||'My profile'));else if(a=='cx')await exportP(snap(n||'My profile'));
