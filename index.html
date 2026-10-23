@@ -2,8 +2,8 @@
 <html lang="en" data-theme="dark"><head><meta charset="utf-8"><title>FocalFlau</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
-:root{--bg:#1b1c1f;--pn:#232427;--rs:#2e2f34;--ink:#ecebe6;--mut:#9b9da5;--g:#f2c94c;--y:#f2c94c;--ln:#37383e;--st:#2c2d30;--tr:#464750;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-:root[data-theme=light]{--bg:#e6e5df;--pn:#f6f5f1;--rs:#fff;--ink:#202124;--mut:#666870;--g:#8f6700;--y:#f2c94c;--ln:#d8d7d0;--st:#d3d2cb;--tr:#c9c8c0;color-scheme:light}
+:root{--bg:#16181c;--pn:#1c1f24;--rs:#242830;--ink:#e8eaee;--mut:#8b919c;--g:#6aa5ff;--y:#4f8ef7;--yi:#fff;--ln:#2b2f37;--st:#101215;--tr:#3a3f4a;--r:6px;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme=light]{--bg:#f4f5f7;--pn:#fff;--rs:#f1f2f5;--ink:#1a1d23;--mut:#636976;--g:#1d5fd6;--y:#1d5fd6;--yi:#fff;--ln:#dfe2e8;--st:#e6e8ec;--tr:#cdd1d9;color-scheme:light}
 html,body{height:100%;margin:0}
 body{font:13px/1.4 system-ui,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;background:var(--bg);color:var(--ink);display:flex;flex-direction:column}
 header{display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-bottom:1px solid var(--ln);flex-wrap:wrap;background:var(--bg)}
@@ -60,11 +60,50 @@ dialog img{max-width:100%;max-height:60vh;display:block;margin:0 auto .6rem;bord
 textarea{font:12px/1.35 ui-monospace,Consolas,monospace;color:var(--ink);background:var(--rs);border:1px solid var(--ln);border-radius:8px;padding:.45rem .6rem;width:100%;box-sizing:border-box;resize:vertical;margin:.3rem 0}
 .pi{padding:.4rem .5rem;border:1px solid var(--ln);border-radius:8px;margin:.25rem 0;background:var(--rs)}.pi b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pb{display:flex;gap:.25rem;margin-top:.3rem}.pb button{padding:.2rem .5rem;font-size:12px}
 @media(max-width:820px){main{grid-template-columns:1fr;grid-template-rows:minmax(0,50%) minmax(0,1fr)}aside{border-left:0;border-top:1px solid var(--ln)}.vf{padding:1.6rem 1.4rem}}
+
+/* ---- professional polish ---- */
+body{font:13px/1.45 Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+header{gap:.4rem;padding:.5rem .9rem;background:var(--pn);border-bottom:1px solid var(--ln)}
+.logo{font-weight:700;font-size:1.05rem;letter-spacing:-.02em;margin-right:.6rem;display:inline-flex;align-items:center}
+.logo::before{width:.62em;height:.62em;border:.14em solid var(--g);background:transparent;box-shadow:inset 0 0 0 .13em var(--pn),inset 0 0 0 .5em var(--g);margin-right:.5em;vertical-align:0}
+.tag{font-size:12px;opacity:.85}
+button,select,input[type=text],input[type=number]{border-radius:var(--r);padding:.36rem .7rem;font-size:12.5px;font-weight:500;background:var(--rs)}
+header button:not(.y){background:transparent;border-color:transparent;color:var(--mut)}
+header button:not(.y):hover{background:var(--rs);color:var(--ink);border-color:var(--ln)}
+button:hover{border-color:var(--tr)}
+button.y,a.y{background:var(--y);color:var(--yi);font-weight:600;border-radius:var(--r);box-shadow:0 1px 2px rgba(0,0,0,.25)}
+button.y:hover{filter:brightness(1.1)}
+button.on{background:color-mix(in srgb,var(--g) 18%,transparent);color:var(--g);border-color:color-mix(in srgb,var(--g) 55%,transparent)}
+main{grid-template-columns:minmax(0,1fr) 332px}
+aside{background:var(--pn);padding:0 .9rem 2rem;scrollbar-width:thin;scrollbar-color:var(--tr) transparent}
+details{border-bottom:1px solid var(--ln);padding:0}
+summary{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);padding:.8rem 0}
+summary::after{width:6px;height:6px;border-width:1.5px}
+details[open]>summary{color:var(--ink)}details[open]>summary::after{border-color:var(--mut)}
+details[open]{padding-bottom:.9rem}
+.s{margin:.6rem 0}
+.s>span{font-size:12px;margin-bottom:.1rem}
+input[type=range]::-webkit-slider-thumb{width:12px;height:12px;margin-top:-4px;background:#fff;border:0;box-shadow:0 0 0 1px rgba(0,0,0,.35),0 1px 3px rgba(0,0,0,.4)}
+input[type=range]::-moz-range-thumb{width:12px;height:12px;background:#fff;border:0;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+input[type=range]:hover::-webkit-slider-thumb{background:var(--g)}input[type=range]:hover::-moz-range-thumb{background:var(--g)}
+.pm{border-radius:5px;background:transparent;border-color:transparent}.pm:hover{background:var(--rs);border-color:var(--ln)}
+.row{margin:.5rem 0}
+.mi{border-radius:var(--r);padding:.4rem .6rem}.mi.on{border-color:var(--g);background:color-mix(in srgb,var(--g) 10%,var(--rs))}
+.pi{border-radius:var(--r)}
+#cc,#cc+*{border-radius:var(--r)}#cc{border:1px solid var(--ln)}
+.sub{font-weight:600;margin-top:1rem}
+.hint{line-height:1.5}
+dialog{border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#toast{background:var(--ink);color:var(--bg);font-weight:500;border-radius:var(--r);box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.vf{background:none;border:1px dashed var(--tr);border-radius:12px;padding:2.8rem 3.2rem;gap:.9rem}
+#em h1{font-size:1.6rem;font-weight:650;letter-spacing:-.025em}
+#em p{font-size:13.5px;line-height:1.55}
+@media(max-width:820px){header .tag{display:none}}
 </style></head><body>
-<header><span class="logo">FocalFlau</span><span class="tag">Free. No login. No ads. Your photos never leave this device.</span>
+<header><span class="logo">FocalFlau</span><span class="tag">Private by design. Your photos never leave this device.</span>
 <button id="open">Open photo</button><button id="cmp">Hold to compare</button><button id="rst">Reset</button><button id="prb">Profiles</button><button id="th">Light mode</button><button id="exb" class="y">Export</button></header>
 <main><section id="st"><canvas id="cv"></canvas><canvas id="mo"></canvas>
-<div id="em"><div class="vf"><h1>Edit photos, in flow.</h1><p>Drop a photo here to start. Light, curves, color, effects, detail and masks, all in your browser.</p><div class="row"><button class="y" id="open2">Open photo</button><button id="smp">Try a sample</button></div></div></div></section>
+<div id="em"><div class="vf"><h1>Professional photo editing, in your browser.</h1><p>Drop a photo here to begin. Light, curves, color, effects, detail and masks, with nothing uploaded.</p><div class="row"><button class="y" id="open2">Open photo</button><button id="smp">Try a sample</button></div></div></div></section>
 <aside id="sd"></aside></main>
 <input type="file" id="fi" accept="image/*" hidden><input type="file" id="li" accept="image/*" hidden><input type="file" id="pi" accept=".json,application/json" hidden><dialog id="dg"><img id="dgi" alt="Exported photo"><p>Your download should have started. If it did not, use the button below, or press and hold the photo to save it.</p><div class="row"><a id="dga" class="y">Download</a><button id="dgc">Close</button></div></dialog><div id="toast"></div>
 <script>
@@ -112,7 +151,7 @@ const toast=t=>{const e=$('#toast');e.textContent=t;e.style.opacity=1;clearTimeo
 const setV=(k,v)=>{P[k]=v;const i=$('#i_'+k);if(i){i.value=v;i.closest('.s').querySelector('output').textContent=v}};
 /* curves */
 function drawC(){const c=$('#cc');if(!c)return;const x=c.getContext('2d'),S=240,cs=getComputedStyle(document.documentElement);x.clearRect(0,0,S,S);x.strokeStyle=cs.getPropertyValue('--ln');for(let i=1;i<4;i++){x.beginPath();x.moveTo(i*60,0);x.lineTo(i*60,S);x.moveTo(0,i*60);x.lineTo(S,i*60);x.stroke()}
-const col={m:cs.getPropertyValue('--g'),r:'#d33',g:'#2a2',b:'#36c'}[ch],L=lut(P.cv[ch]);x.strokeStyle=col;x.lineWidth=2;x.beginPath();L.forEach((v,i)=>x[i?'lineTo':'moveTo'](i/255*S,(1-v)*S));x.stroke();x.fillStyle='#f2cf3a';P.cv[ch].forEach(q=>{x.beginPath();x.arc(q[0]*S,(1-q[1])*S,5,0,7);x.fill();x.stroke()})}
+const col={m:cs.getPropertyValue('--g'),r:'#d33',g:'#2a2',b:'#36c'}[ch],L=lut(P.cv[ch]);x.strokeStyle=col;x.lineWidth=2;x.beginPath();L.forEach((v,i)=>x[i?'lineTo':'moveTo'](i/255*S,(1-v)*S));x.stroke();x.fillStyle='#fff';P.cv[ch].forEach(q=>{x.beginPath();x.arc(q[0]*S,(1-q[1])*S,5,0,7);x.fill();x.stroke()})}
 let cd=-1;const cp=e=>{const r=e.target.getBoundingClientRect();return[cl((e.clientX-r.left)/r.width),cl(1-(e.clientY-r.top)/r.height)]};
 $('#sd').addEventListener('pointerdown',e=>{if(e.target.id!='cc')return;const p=cp(e),pt=P.cv[ch];let i=pt.findIndex(q=>Math.hypot(q[0]-p[0],q[1]-p[1])<.05);if(e.button==2){if(i>=2)pt.splice(i,1)}else{if(i<0){pt.push(p);i=pt.length-1}cd=i;e.target.setPointerCapture(e.pointerId)}drawC();go()});
 $('#sd').addEventListener('pointermove',e=>{if(cd<0||e.target.id!='cc')return;const p=cp(e),q=P.cv[ch][cd];if(cd>=2)q[0]=p[0];q[1]=p[1];drawC();go()});
@@ -254,7 +293,7 @@ $('#exb').onclick=()=>{const ds=[...document.querySelectorAll('#sd details')],l=
 /* canvas masks */
 const cv=$('#cv'),pt=e=>{const r=cv.getBoundingClientRect(),s=Math.min(r.width/cv.width,r.height/cv.height),ox=(r.width-cv.width*s)/2,oy=(r.height-cv.height*s)/2;return[cl((e.clientX-r.left-ox)/(cv.width*s)),cl((e.clientY-r.top-oy)/(cv.height*s))]};
 /* mask handles */
-const mo=$('#mo'),oc=mo.getContext('2d'),YL='#f2c94c',gm=()=>{const r=cv.getBoundingClientRect(),W=cv.width||1,H=cv.height||1,s=Math.min(r.width/W,r.height/H);return{W,H,s,ox:(r.width-W*s)/2,oy:(r.height-H*s)/2}},n2s=(p,g)=>[g.ox+p[0]*g.W*g.s,g.oy+p[1]*g.H*g.s];
+const mo=$('#mo'),oc=mo.getContext('2d'),YL='#6aa5ff',gm=()=>{const r=cv.getBoundingClientRect(),W=cv.width||1,H=cv.height||1,s=Math.min(r.width/W,r.height/H);return{W,H,s,ox:(r.width-W*s)/2,oy:(r.height-H*s)/2}},n2s=(p,g)=>[g.ox+p[0]*g.W*g.s,g.oy+p[1]*g.H*g.s];
 let dh=null;
 function hls(m,g){const S=p=>n2s(p,g);
 if(m.t=='lin'){const A=S(m.a),B=S(m.b);return[{k:'mv',p:[(A[0]+B[0])/2,(A[1]+B[1])/2]},{k:'a',p:A},{k:'b',p:B}]}
@@ -288,7 +327,7 @@ const tw=t?x.measureText(t).width:0,lw=logo?s*logo.width/logo.height:0,mw=tw+lw+
 if(logo)x.drawImage(logo,px,py,lw,s);if(t){x.fillStyle='#fff';x.shadowColor='rgba(0,0,0,.5)';x.shadowBlur=s*.12;x.fillText(t,px+lw+(lw?s*.3:0),py)}x.globalAlpha=1;x.shadowBlur=0}
 function csp(c){const m=$('#cs').value;if(m=='s')return;const x=c.getContext('2d'),I=x.getImageData(0,0,c.width,c.height),d=I.data,Mx=m=='a'?[.7152,.2848,0,0,1,0,0,.0412,.9588]:[.5293,.33,.1406,.0983,.8734,.0283,.0168,.1176,.8656],ig=m=='a'?1/2.2:1/1.8,Tb=Float32Array.from({length:256},(_,i)=>{const v=i/255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4});
 for(let i=0;i<d.length;i+=4){const r=Tb[d[i]],g=Tb[d[i+1]],b=Tb[d[i+2]];for(let j=0;j<3;j++)d[i+j]=255*cl(Mx[j*3]*r+Mx[j*3+1]*g+Mx[j*3+2]*b)**ig}x.putImageData(I,0,0)}
-async function save(){if(!img)return toast('Open a photo first');const f=$('#ff').value,Q=$('#q').value/100;let blob,name=(file&&file.name?file.name.replace(/\.[^.]+$/,''):'FocalFlau')+'-edit';toast('Rendering…');await new Promise(r=>requestAnimationFrame(()=>setTimeout(r,30)));
+async function save(){if(!img)return toast('Open a photo first');const f=$('#ff').value,Q=$('#q').value/100;let blob,name=(file&&file.name?file.name.replace(/\.[^.]+$/,''):'focalflow')+'-edit';toast('Rendering…');await new Promise(r=>requestAnimationFrame(()=>setTimeout(r,30)));
 try{if(f=='orig'&&file&&!$('#sp').checked){blob=file;name=file.name}else{const c=document.createElement('canvas');
 if(f=='orig'){const b=P;pipe(c,0,1)}else{pipe(c,+$('#le').value||0);wm(c);csp(c)}
 const mt=f=='orig'?'jpeg':f;blob=await new Promise(r=>c.toBlob(r,'image/'+mt,Q));name+=mt=='jpeg'?'.jpg':'.'+mt;
@@ -326,7 +365,7 @@ const esc=x=>String(x).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),fin=v=>ty
 Object.values(SL).flat().concat(HS).forEach(x=>RG[x.k]=[x.a,x.b]);
 const js=o=>JSON.stringify(o,(k,v)=>typeof v=='number'?Math.round(v*1e4)/1e4:v),
 b64=t=>{const u=new TextEncoder().encode(t);let r='';for(let i=0;i<u.length;i+=8192)r+=String.fromCharCode.apply(null,u.subarray(i,i+8192));return btoa(r)},unb=t=>new TextDecoder().decode(Uint8Array.from(atob(t),c=>c.charCodeAt(0)));
-function cfix(o){if(!o||o.app!='FocalFlau'||!o.P||typeof o.P!='object')return null;const i=o.P,p={};
+function cfix(o){if(!o||(o.app!='FocalFlau'&&o.app!='FocalFlow')||!o.P||typeof o.P!='object')return null;const i=o.P,p={};
 for(const k in RG)if(fin(i[k]))p[k]=cl(i[k],RG[k][0],RG[k][1]);
 if([...Object.keys(WBS),'Auto','Custom'].includes(i.wb))p.wb=i.wb;
 if(Number.isInteger(i.rot))p.rot=(i.rot%4+4)%4;if('fh' in i)p.fh=i.fh?1:0;if('fv' in i)p.fv=i.fv?1:0;if(ASP.includes(String(i.asp)))p.asp=String(i.asp);
@@ -341,7 +380,7 @@ function snap(name){const p=JSON.parse(JSON.stringify(P));delete p.sm;const c=$(
 function applyP(o){const s=JSON.parse(JSON.stringify(o)),oP=P,oM=M,oa=am;reset();['rot','fh','fv','asp','str'].forEach(k=>{if(!(k in s.P)&&oP[k]!==undefined)P[k]=oP[k]});Object.assign(P,s.P);if(s.M){M=s.M;am=-1}else{M=oM;am=oa}build();go()}
 async function dlFile(b,n){let dl=null;try{dl=window.claude&&claude.use?await claude.use('downloads'):null}catch(_){}if(dl)await dl.save({filename:n,data:b});else{const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000)}}
 async function share(o){const c='FF1:'+b64(js(o)),t=$('#pc');if(t)t.value=c;let ok=0;try{await navigator.clipboard.writeText(c);ok=1}catch(_){try{t.select();ok=document.execCommand('copy')}catch(_){}}toast(ok?'Profile code copied':'Copy the code from the box')}
-async function exportP(o){try{await dlFile(new Blob([js(o)],{type:'application/json'}),(o.name.replace(/[^\w\- ]+/g,'').trim().replace(/\s+/g,'-')||'profile')+'.FocalFlau.json');toast('Profile exported')}catch(e){toast(e&&e.code=='declined'?'Export cancelled':'Could not export')}}
+async function exportP(o){try{await dlFile(new Blob([js(o)],{type:'application/json'}),(o.name.replace(/[^\w\- ]+/g,'').trim().replace(/\s+/g,'-')||'profile')+'.focalflau.json');toast('Profile exported')}catch(e){toast(e&&e.code=='declined'?'Export cancelled':'Could not export')}}
 function imp(t){let s=null;try{t=String(t).trim();if(t.length>6e6)throw 0;s=cfix(JSON.parse(t.startsWith('FF1:')?unb(t.slice(4).replace(/\s+/g,'')):t))}catch(_){}if(!s)return toast('That is not a readable FocalFlau profile');const k=PF.findIndex(p=>p.name==s.name);k<0?PF.push(s):PF[k]=s;svp();applyP(s);toast('Imported "'+s.name+'"')}
 async function pfAct(a,i){const n=(($('#pn')||{}).value||'').trim().slice(0,40);
 if(a=='sv'){const o=snap(n||'Profile '+(PF.length+1)),k=PF.findIndex(p=>p.name==o.name);k<0?PF.push(o):PF[k]=o;svp();dpl();$('#pn').value='';toast('Saved "'+o.name+'"')}
